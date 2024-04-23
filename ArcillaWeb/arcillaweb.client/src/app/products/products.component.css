@@ -1,0 +1,54 @@
+.features{
+    display : flex;
+    justify-content: between;
+    margin-right: 200px;
+  }
+.feature{
+  background-color: #98C1D9;
+  color: #fff;
+  border-radius: 10%;
+  margin-left: 2vh;
+  background-size: 110% auto;
+}
+
+.card-img-top{
+  height:15em;
+}
+
+.cardProduct{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: left;
+  flex-grow: 1;
+  margin-right: 5%;
+  width: 80%;
+}
+
+.card{
+  width:58.2vh;
+  margin: 1%;
+  border:0;
+}
+
+.filter{
+  background-color: aqua;
+  height: 40%;
+}
+
+.inputFilter{
+  justify-content: center;
+  width: 80%;
+  align-self: center;   
+}
+
+.titleFilter{
+  width: 100%;
+  margin-top: 8%;
+  position: absolute;  
+}
+
+.checkboxList{
+  width: 30%;
+  justify-content: center;
+  align-items: flex-start;
+}

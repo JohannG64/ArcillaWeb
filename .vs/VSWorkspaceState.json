@@ -1,0 +1,10 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\ArcillaWeb",
+    "\\ArcillaWeb\\ArcillaWeb.Server",
+    "\\ArcillaWeb\\ArcillaWeb.Server\\Models"
+  ],
+  "SelectedNode": "\\ArcillaWeb\\ArcillaWeb.Server\\Models\\ApplicationDbContext.cs",
+  "PreviewInSolutionExplorer": false
+}

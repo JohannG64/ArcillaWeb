@@ -1,0 +1,101 @@
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<a href="https://api.whatsapp.com/send?phone=51955081075&text=Hola%21%20Quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Varela%202." class="float" target="_blank">
+<i class="fa fa-whatsapp my-float"></i>
+</a>
+    <div class="slidesImages">
+        <swiper-container navigation="true">
+            <swiper-slide *ngFor="let image of sliderImages">
+                <img [src]="image">
+                <div class="mytest">
+                    <p class="title">Productos para acabados<br><br> arquitectonicos</p>
+                    <p>Cada producto nos permite integrarnos mejor con la naturaleza, <br>imitar su inteligencia y reimaginar la ciudad en la que convivimos con ella</p>
+                </div>
+            </swiper-slide>    
+        </swiper-container>
+    </div>
+    <div class="introductionImages">
+        <div class="container">
+            <div class="d-flex flex-row mb-2">
+                <div class="p-2">
+                    <img class="imageIntroLeft" src="https://blogcomparasoftware-192fc.kxcdn.com/wp-content/uploads/2020/07/Ejemplos-de-Proyectos-1.jpg">
+                </div>
+                <div class="p-2">
+                    <div class="textRight">
+                        <h1 class="introductionTitle">Construimos en balance con la tierra</h1>
+                        <p class="introductionDescription">Cada producto nos permite integrarnos mejor con la naturaleza,<br>
+                             imitar su inteligencia y reimaginar la ciudad en <br>
+                             la que convivimos con ella.</p>
+                        <a href="">Link</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="container">
+            <div class="d-flex flex-row mb-2">
+                <div class="p-2">
+                    <div class="textLeft">
+                        <h1 class="introductionTitle">Construimos en balance con la tierra</h1>
+                        <p class="introductionDescription">Cada producto nos permite integrarnos mejor con la naturaleza,<br>
+                            imitar su inteligencia y reimaginar la ciudad en <br>
+                            la que convivimos con ella.</p>
+                        <a href="">Link</a>
+                    </div>
+                </div>
+                <div class="p-2">
+                    <img class="imageIntroRight" src="https://blogcomparasoftware-192fc.kxcdn.com/wp-content/uploads/2020/07/Ejemplos-de-Proyectos-1.jpg">
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="d-flex flex-row mb-2">
+                <div class="p-2">
+                    <img class="imageIntroLeft" src="https://blogcomparasoftware-192fc.kxcdn.com/wp-content/uploads/2020/07/Ejemplos-de-Proyectos-1.jpg">
+                </div>
+                <div class="p-2">
+                    <div class="textRight">
+                        <h1 class="introductionTitle">Construimos en balance con la tierra</h1>
+                        <p class="introductionDescription">Cada producto nos permite integrarnos mejor con la naturaleza,<br>
+                            imitar su inteligencia y reimaginar la ciudad en <br>
+                            la que convivimos con ella.</p>
+                        <a href="">Link</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="Products">  
+        <h1 class="productsTitle">Categorias</h1>
+        <div class="cardProduct" #myItems>
+            <div class="card" style="width: 24rem;" *ngFor="let use of uses ">
+                <div class="card-body" >
+                    <img [src]="use.image" class="card-img-top" alt="...">
+                    <div class="row">
+                        <div >
+                            <h5 class="card-title" (click)="productsUseRedirect(use.id)">{{use.name}}</h5>
+                        </div>
+                    </div>
+                <p class="card-text">{{use.description}}</p>
+                
+                </div>
+            </div>
+            
+        </div>
+        <button class="productButton" type="button" (click)="productsRedirect()">Ver todos los productos</button>
+    </div>
+    <div class="clients">
+        <h1 class="clientsTitle">Clientes destacados</h1>
+        <p> Conozca las empresas que han elegido nuestras soluciones en arquitectura y concreto para ejecutar sus construcciones y proyectos.</p>
+        <div class="slidesImages">
+            <swiper-container slides-per-view="3" pagination="true" pagination-clickable="true" space-between="30" autoplay-delay="2500" autoplay-disable-on-interaction="false">
+                <swiper-slide *ngFor="let image of sliderImages" >
+                    <img class="logoClients" [src]="image">
+                </swiper-slide>    
+            </swiper-container>
+        </div>
+    </div>
+    
+
+  

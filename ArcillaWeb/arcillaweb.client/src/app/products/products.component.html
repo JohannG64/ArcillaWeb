@@ -1,0 +1,56 @@
+<div class="filter">
+    <div class="titleFilter">
+        <h1 >Encuentra tu producto</h1>
+        <input type="text" #myFilter class="inputFilter"(input)="filterItems()" placeholder="Filtrar por título...">   
+    </div>
+    
+</div>
+
+<div class="d-flex flex-row mb-3">
+    <div #myCheckbox class="checkboxList">
+        <h1>Categorias</h1>
+        <label class="d-flex" *ngFor="let use of uses">
+            <input type="checkbox" (change)="filterItemsByUse();"  class="checkboxUse"><span>{{use.name}}</span>
+        </label>
+        <h1>Materiales</h1>
+        <label class="d-flex" *ngFor="let material of materials">
+            <input type="checkbox" (change)="filterItemsByMaterial();"  class="checkboxMaterial"><span>{{material.name}}</span>
+        </label>
+        <h1>Colores</h1>
+        <label class="d-flex" *ngFor="let color of colors">
+            <input type="checkbox" (change)="filterItemsByColor();"  class="checkboxColor"><span>{{color.name}}</span>
+        </label>
+        <button (click)="clearFilters()">Clear</button>
+    </div>
+    
+    
+    <div class="cardProduct" #myItems>
+        <div class="card" style="width: 27rem;" *ngFor="let product of productsDisplayed | paginate: { itemsPerPage: 4, currentPage: p }">
+            <div class="card-body" >
+                <img [src]="product.image" class="card-img-top" alt="..." (click)="productIndividualRedirect(product.reference)">
+                <div class="row">
+                    <div class="col-4">
+                        <h5 class="card-title" (click)="productIndividualRedirect(product.reference)">{{product.name}}</h5>
+                        <p class="product-use">{{product.use}}</p>
+                    </div>
+                    <div class="col-4">
+                        <div class="features" >
+                            <p class="feature">{{product.width}}X{{product.height}}X{{product.large}}</p>
+                            <p class="feature">{{product.iva}}</p>
+                            <div *ngFor="let material of materials" >
+                                <p class="feature" *ngIf="product.material == material.id">{{material.name}}</p>
+                            </div>
+                            
+                            <p class="feature">{{product.performanceM2}}</p>
+                        </div>
+                    </div>
+                </div>
+            <p class="card-text">{{product.description}}</p>
+            
+            </div>
+        </div>
+        
+    </div>
+    
+</div>
+<pagination-controls (pageChange)="p = $event"></pagination-controls>

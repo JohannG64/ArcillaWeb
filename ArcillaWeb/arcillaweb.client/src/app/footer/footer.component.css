@@ -1,0 +1,42 @@
+.footerContactDiv{
+    width: 14em;
+    text-align: justify;
+}
+.footerProductsDiv{
+    width: 14em;
+    text-align: justify;
+}
+.footerWhyUsDiv{
+    width: 14em;
+    text-align: justify;
+}
+
+.footerNav{
+    background-color: #11183A;
+}
+.footerBottom{
+    background-color: #3A3D7B;
+}
+
+.footerDescriptionDiv{
+    text-align: justify;
+}
+
+
+.h4{
+    text-align: left;
+}
+
+.parent{
+    color: white;
+}
+
+.footerProductsDivTitle{
+    color: #00B3B0;
+}
+.footerContactDivTitle{
+    color: #FFAA22;
+}
+.footerWhyUsDivTitle{
+    color: #C76446;
+}

@@ -1,0 +1,142 @@
+<div class="d-flex">
+  <div class="left">
+    <div class="images">
+      <div class="slidesImages">
+        <swiper-wrapper>
+          <swiper-slide *ngFor="let image of sliderImages">
+            <img [src]="image">
+          </swiper-slide>
+        </swiper-wrapper>
+      </div>
+    </div>
+    <div class="productDetail">
+      <button (click)="activateRecomendations()" class="recomendationButton" [ngStyle]="{'background-color': (recomendationActive) ? '#11183A' : '#ffffff', color: (recomendationActive) ? '#ffffff' : '#11183A'}">Recomendaciones</button>
+      <button (click)="activateTable()" class="detailButton" [ngStyle]="{'background-color': (tableActive) ? '#11183A' : '#ffffff', color: (tableActive) ? '#ffffff' : '#11183A'}">FichaTecnica</button>
+      <div *ngIf="recomendationActive" class="Recomendaciones">
+        <h1>Detalles</h1>
+        <p>El trasiego y los movimientos deben efectuarse cuidadosamente de manera que se eviten desportilladuras. No se
+          deben arrastrar las piezas sobre el piso. Tampoco se deben trasladar apoyándolas sobre los cantos mediante
+          cabeceos sucesivos</p>
+        <h1>Normatividad</h1>
+        <p>NTC 4109 </p>
+      </div>
+      <div *ngIf="tableActive" class="tabla">
+        <table class="table table-bordered">
+          <tbody>
+            <tr>
+              <th scope="row">Especificaciones</th>
+              <td>Largo: {{product.large}}</td>
+              <td>Ancho: {{product.width}}</td>
+              <td>Alto: {{product.height}}</td>
+            </tr>
+            <tr>
+              <th scope="row">Tolerancias</th>
+              <td>LONGITUD: {{product.largeTolerance}}</td>
+              <td>ANCHO: {{product.widthTolerance}}</td>
+              <td>ALTO: {{product.heightTolerance}}</td>
+            </tr>
+            <tr>
+              <th scope="row">Colores</th>
+              <td colspan="3">
+                <div class="tableFeatures">
+                  <div *ngFor="let color of colors">
+                    <div *ngFor="let prodColor of productColor">
+                      <p *ngIf="prodColor == color.id">{{color.name}}</p>
+                    </div>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">Peso</th>
+              <td colspan="3">{{productWeight}}</td>
+            </tr>
+            <tr>
+              <th scope="row">Rendimiento</th>
+              <td colspan="3">{{product.performanceM2}} un/m2</td>
+            </tr>
+            <tr>
+              <th scope="row">ABSORCIÓN DE AGUA</th>
+              <td colspan="3">{{product.humidityTest}}</td>
+            </tr>
+            <tr>
+              <th scope="row">RESISTENCIA A LA ABRASIÓN</th>
+              <td colspan="3">{{product.abrasionTest}}</td>
+            </tr>
+            <tr>
+              <th scope="row" >Uso y aplicacion</th>
+              <td colspan="3">
+                <div class="tableFeatures">
+                  <div *ngFor="let use of uses">
+                    <div *ngFor="let prodUse of productUses">
+                      <p *ngIf="prodUse == use.id">{{use.name}}</p>
+                    </div>
+                  </div>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="right">
+    <h1 class="generalTitle">{{productTitle}}</h1>
+    <h2 class="productPrice">${{productPrice}}</h2>
+    <h3 class="productDescription">{{productDescription}}</h3>
+    <h2 class="productDetailsTitle">Colores Disponibles</h2>
+    <div class="features">
+      <div *ngFor="let color of colors">
+        <div  *ngFor="let prodColor of productColor" >
+          <button [ngStyle]="{'background-color':color.code}" (click)="changeColor(color.name, color.code)" class="colorButton"
+            *ngIf="prodColor == color.id"> </button>
+        </div>
+      </div>
+    </div>
+    <h2 [ngStyle]="{'background-color': codeColor}">{{nameColor}}</h2>
+    <h2 class="productDetailsTitle">Dimensiones</h2>
+    <h3 class="productDetailsContent">{{productDimension}}</h3>
+    <h2 class="productDetailsTitle">Peso</h2>
+    <h3 class="productDetailsContent">{{productWeight}}</h3>
+    <h2 class="generalTitle">Metodos de envio</h2>
+    <h3>Posibilidad de solicitud en planta</h3>
+    <h2 class="generalTitle">Garantia</h2>
+    <h3>Para conocer la garantía de nuestros productos, comuníquese aquí con nuestros asesores.</h3>
+    <h2 class="generalTitle">Descuentos</h2>
+    <h3>Despues de 50 unidades genera un 20% de descuento</h3>
+    <h2 class="generalTitle">Metodos de pago</h2>
+    <img class="icon" src="https://staticprd.minuto30.com/wp-content/uploads/2018/03/logo-bancolombia-Copiar.jpg">
+    <img class="icon" src="data:image/png;base64,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">
+  </div>
+</div>
+<div>
+  <h1>Productos Relacionados</h1>
+  <div class="cardProduct" #myItems>
+    <div class="card" style="width: 27rem;"
+      *ngFor="let product of products | paginate: { itemsPerPage: 3, currentPage: p }">
+      <div class="card-body">
+        <img [src]="product.image" class="card-img-top" alt="...">
+        <div class="row">
+          <div class="col-4">
+            <h5 class="card-title" (click)="productIndividualRedirect(product.reference)">{{product.name}}</h5>
+            <p class="product-use">{{product.use}}</p>
+          </div>
+          <div class="col-4">
+            <div class="features">
+              <p class="feature">{{product.width}}X{{product.height}}X{{product.large}}</p>
+              <p class="feature">{{product.iva}}</p>
+              <div *ngFor="let material of materials">
+                <p class="feature" *ngIf="product.material == material.id">{{material.name}}</p>
+              </div>
+              <p class="feature">{{product.performanceM2}}</p>
+            </div>
+          </div>
+        </div>
+        <p class="card-text">{{product.description}}</p>
+
+      </div>
+    </div>
+
+  </div>
+  <button class="productButton" type="button" (click)="productsRedirect()">Ver todos los productos</button>
+</div>
