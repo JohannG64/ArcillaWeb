@@ -16,28 +16,23 @@
                     </div> 
                 </div>
                 <div class="p-4">
-                    <div class="footerProductsDiv">
+                    <div class="footerProductsDiv" >
                         <h4 class="footerProductsDivTitle">Productos</h4>
-                        <p class="footerProducts">
-                            Adoquin<br>
-                            Losetas<br>
-                            Bloques arquitectonicos<br>
-                            Bloque fachadas<br>
-                            Bloque divisorio<br>
-                            Complementario<br>
-                            Piso ecologico<br>
-                            Muro de contencion
-                        </p>
+                        <div *ngFor="let use of uses">
+                            <p (click)="productsUseRedirect(use.id)" class="footerProducts">
+                                {{use.name}}
+                            </p>
+                        </div>
                     </div> 
                 </div> 
                 <div class="p-4">
                     <div class="footerWhyUsDiv">
-                        <h4 class="footerWhyUsDivTitle">Por qué nosotros</h4>
+                        <h4 class="footerWhyUsDivTitle">Proyectos</h4>
                         <p class="footerWhyUs">
-                            Historia<br>
-                            Servicio<br>
-                            Sostenibilidad<br>
-                            Proyectos
+                            Chia<br>
+                            Cajica<br>
+                            Tocancipa<br>
+                            Nemocon
                         </p>
                     </div> 
                 </div>

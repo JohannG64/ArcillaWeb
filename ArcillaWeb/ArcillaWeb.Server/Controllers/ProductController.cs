@@ -71,6 +71,20 @@ namespace ArcillaWeb.Server.Controllers
             }
         }
 
+        [HttpGet("[action]")]
+        public ActionResult<List<ProductType>> GetListProductTypes()
+        {
+            try
+            {
+                List<ProductType> productTypes = context.ProductTypes.ToList();
+                return productTypes;
+            }
+            catch (Exception ex)
+            {
+                throw new ApplicationException(ex.Message);
+            }
+        }
+
         [HttpGet("[action]/{reference}")]
         public ActionResult<Product> GetProduct(string reference)
         {

@@ -23,6 +23,8 @@ public partial class ApplicationDbContext : DbContext
 
     public virtual DbSet<Product> Products { get; set; }
 
+    public virtual DbSet<ProductType> ProductTypes { get; set; }
+
     public virtual DbSet<Use> Uses { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -74,8 +76,20 @@ public partial class ApplicationDbContext : DbContext
             entity.Property(e => e.Material).HasMaxLength(50);
             entity.Property(e => e.Name).HasMaxLength(50);
             entity.Property(e => e.Price).HasColumnType("numeric(18, 0)");
+            entity.Property(e => e.TypeProduct)
+                .HasMaxLength(255)
+                .IsUnicode(false);
             entity.Property(e => e.Use).HasMaxLength(50);
             entity.Property(e => e.Weight).HasColumnType("numeric(18, 0)");
+        });
+
+        modelBuilder.Entity<ProductType>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK_productType");
+
+            entity.ToTable("ProductType");
+
+            entity.Property(e => e.Name).HasMaxLength(10);
         });
 
         modelBuilder.Entity<Use>(entity =>

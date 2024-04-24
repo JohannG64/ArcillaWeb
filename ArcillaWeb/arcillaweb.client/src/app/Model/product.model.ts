@@ -19,4 +19,5 @@ export interface Product{
     performanceM2: string[];
     image: string;
     price: number;
+    typeProduct: string;
 }

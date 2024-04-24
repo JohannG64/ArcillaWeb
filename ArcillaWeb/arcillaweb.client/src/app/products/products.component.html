@@ -8,6 +8,10 @@
 
 <div class="d-flex flex-row mb-3">
     <div #myCheckbox class="checkboxList">
+        <h1>Tipo de producto</h1>
+        <label class="d-flex" *ngFor="let type of productTypes">
+            <input type="checkbox" (change)="filterItemsByProductType();"  class="checkboxProductType"><span>{{type.name}}</span>
+        </label>
         <h1>Categorias</h1>
         <label class="d-flex" *ngFor="let use of uses">
             <input type="checkbox" (change)="filterItemsByUse();"  class="checkboxUse"><span>{{use.name}}</span>
